@@ -183,9 +183,9 @@ int main(int ac, char** av) {
     // PART 1 ENTROPY CALUCLATION
     
     /* Entropy Function can be applied to a string using the below logic
-    string input = "ONESMARTFELLAHEFELTSMARTTWOSMARTFELLASTHEYFELTSMART";
-    vector<char> inputvec(input.begin(), input.end());
-    */
+     string input = "ONESMARTFELLAHEFELTSMARTTWOSMARTFELLASTHEYFELTSMART";
+     vector<char> inputvec(input.begin(), input.end());
+     */
     
     map<char,double> mentropy; // stores entropy table for all symbols
     double entValue;  // stores entire image's theoretical entropy value
@@ -193,66 +193,66 @@ int main(int ac, char** av) {
     
     // START OF PART 1
     colorImage sample = getRGB("INSERT IMAGE LOCATION", CV_LOAD_IMAGE_COLOR);
-
+    
     // turn MAT to Vector
     vector<char> ch3array;
     ch3array.assign(sample.ch1.datastart, sample.ch1.dataend);
-
-     //PART 1
-
+    
+    //PART 1
+    
     // use entropy function
     mentropy = myEntropy(ch3array);
     entValue = entropy(mentropy);
-
+    
     // print out total entropy of image
     cout <<"Entropy is :"<< entValue << "\n" << "press anykey on image to exit";
     
     //display image
-
+    
     namedWindow( "Display window", WINDOW_AUTOSIZE ); // Create a window for display.
     imshow( "Display window", sample.ch1 );                // Show our image inside it.
     waitKey(0); // Wait for a keystroke in the window
-
+    
     cout << "EXITTING..";
     
     
-//// PART 2 -- Huffman Table
-//    int tree[P][M];
-//    memset(tree, -1, sizeof(tree));
-//    
-//    // Read and split channels, NOT using Methods
-//    Mat image;
-//    image = imread("INSERT IMAGE LOCATION", CV_LOAD_IMAGE_COLOR);
-//    vector<Mat> channels(3);
-//    split (image,channels);
-//    map<char, string> table;
-//    int left, right, nextparent, nextleft, nextright, levelleft=0, levelright=0;
-//    char code1[40], code2[40] ;
-//    left =0;right=0;
-//    
-//    Mat ch1 = channels[0];
-//    
-//    HuffTreeInit(ch1, tree);
-//    HuffTreeNodeInit(tree);
-//    while (k<442){
-//        k++; HuffTreeNode(tree);
-//    }
-//    
-//    
-//    
-//    for (int counter2 =P-1; counter2 >0; counter2--){
-//
-//        levelleft++;
-//        levelright++;
-//        if (tree[counter2][0]!=-1){
-//            if (tree[tree[counter2][2]][2]!=-1){
-//                  cout << counter2 <<" "<< tree[counter2][0] << " " << tree[counter2][1]<< " " << tree[counter2][2]<< " " << tree[counter2][3]<<"\n";
-//                levelright=0;levelright=0;
-//                
-//            }
-//        }
-//        
-//    }
+    //// PART 2 -- Huffman Table
+    //    int tree[P][M];
+    //    memset(tree, -1, sizeof(tree));
+    //
+    //    // Read and split channels, NOT using Methods
+    //    Mat image;
+    //    image = imread("INSERT IMAGE LOCATION", CV_LOAD_IMAGE_COLOR);
+    //    vector<Mat> channels(3);
+    //    split (image,channels);
+    //    map<char, string> table;
+    //    int left, right, nextparent, nextleft, nextright, levelleft=0, levelright=0;
+    //    char code1[40], code2[40] ;
+    //    left =0;right=0;
+    //
+    //    Mat ch1 = channels[0];
+    //
+    //    HuffTreeInit(ch1, tree);
+    //    HuffTreeNodeInit(tree);
+    //    while (k<442){
+    //        k++; HuffTreeNode(tree);
+    //    }
+    //
+    //
+    //
+    //    for (int counter2 =P-1; counter2 >0; counter2--){
+    //
+    //        levelleft++;
+    //        levelright++;
+    //        if (tree[counter2][0]!=-1){
+    //            if (tree[tree[counter2][2]][2]!=-1){
+    //                  cout << counter2 <<" "<< tree[counter2][0] << " " << tree[counter2][1]<< " " << tree[counter2][2]<< " " << tree[counter2][3]<<"\n";
+    //                levelright=0;levelright=0;
+    //                
+    //            }
+    //        }
+    //        
+    //    }
     
     
     
